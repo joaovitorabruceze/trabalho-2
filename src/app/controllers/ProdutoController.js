@@ -6,20 +6,20 @@ class ProdutoController {
     async store(req, res) {
         const dados = req.body;
         const row = await ProdutoRepository.create(dados);
-        res.json(row)
+        res.json(row);
     };
 
     //consulta todos os protudos
     async index(req, res) {
-        const row = await ProdutoRepository.findAll()
-        res.json(row)
+        const row = await ProdutoRepository.findAll();
+        res.json(row);
     };
 
     //consulta os produtos por id
     async show(req, res) {
         const id = Number(req.params.id);
         const row = await ProdutoRepository.findById(id);
-        res.json(row)
+        res.json(row);
     };
 
     //altera dados de um produto por id
@@ -27,14 +27,14 @@ class ProdutoController {
         const id = Number(req.params.id);
         const dados = req.body;
         const row = await ProdutoRepository.update(dados, id);
-        res.json(row)
+        res.json(row);
     };
 
     //deleta um produto por id
     async delete(req, res) {
         const id = Number(req.params.id);
         const row = await ProdutoRepository.delete(id);
-        res.json(row)
+        res.json(row);
     };
 }
 
