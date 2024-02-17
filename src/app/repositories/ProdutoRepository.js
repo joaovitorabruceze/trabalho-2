@@ -10,7 +10,7 @@ class ProdutoRepository {
 
     findAll() {
         const sql = 'SELECT * FROM produto;';
-        return consulta(sql, 'Nenhum registro encontrado!');
+        return consulta(sql, '', 'Nenhum registro encontrado!');
     };
 
     findById(id) {

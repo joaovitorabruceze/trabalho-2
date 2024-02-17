@@ -13,9 +13,9 @@ conexao.connect();
 const consulta = (sql, valores = '', msgReject) => {
     return new Promise((resolve, reject) => {
         conexao.query(sql, valores, (erro, resultado) => {
-            if (erro) return reject(msgReject)
-            const row = JSON.parse(JSON.stringify(resultado))
-            return resolve(row)
+            if (erro) return reject(msgReject);
+            const row = JSON.parse(JSON.stringify(resultado));
+            return resolve(row);
         })
     })
 };
