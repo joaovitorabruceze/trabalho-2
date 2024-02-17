@@ -7,9 +7,10 @@ class UsuarioController {
         const dados = req.body;
         try {
             const row = await UsuarioRepository.create(dados);
-            res.json(row)
+            const msg = `Novo usuário cadastrado! Id do usuário novo: ${row.insertId};`
+            res.status(201).json(msg);
         } catch (err) {
-            res.json(err)
+            res.status(400).json(err);
         }
     };
 
@@ -17,9 +18,9 @@ class UsuarioController {
     async index(req, res) {
         try {
             const row = await UsuarioRepository.findAll();
-            res.json(row)
+            res.status(200).json(row);
         } catch (err) {
-            res.json(err)
+            res.status(404).json(err);
         }
     };
 
@@ -28,9 +29,11 @@ class UsuarioController {
         const id = Number(req.params.id);
         try {
             const row = await UsuarioRepository.findById(id);
-            res.json(row)
+            (row.length > 0) ?
+                res.status(200).json(row) :
+                res.status(404).json('Nenhum registro encontrado!');
         } catch (err) {
-            res.json(err)
+            res.status(400).json(err);
         }
     };
 
@@ -40,9 +43,11 @@ class UsuarioController {
         const dados = req.body;
         try {
             const row = await UsuarioRepository.update(dados, id);
-            res.json(row)
+            (row.changedRows > 0) ?
+                res.status(200).json('Alteração concluída com sucesso!') :
+                res.status(404).json('Nenhum registro encontrado!');
         } catch (err) {
-            res.json(err)
+            res.status(400).json(err);
         }
     };
 
@@ -51,9 +56,11 @@ class UsuarioController {
         const id = Number(req.params.id);
         try {
             const row = await UsuarioRepository.delete(id);
-            res.json(row)
+            (row.affectedRows > 0) ?
+                res.status(200).json('Usuário deletado com sucesso!') :
+                res.status(404).json('Nenhum registro encontrado!');
         } catch (err) {
-            res.json(err)
+            res.status(400).json(err);
         }
     };
 }
