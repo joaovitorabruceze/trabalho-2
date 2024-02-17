@@ -1,33 +1,33 @@
 import { consulta } from "../database/conexao.js";
 
-class ProdutoRepository {
+class UsuarioRepository {
 
-    //CRUD
-    create(produto) {
-        let sql = 'INSERT INTO produto SET ?;';
-        return consulta(sql, produto, 'Dados inválidos, cadastro cancelado!');
+    //CRUD 
+    create(usuario) {
+        let sql = 'INSERT INTO usuario SET ?;';
+        return consulta(sql, usuario, 'Dados inválidos, cadastro cancelado!');
     };
 
     findAll() {
-        const sql = 'SELECT * FROM produto;';
+        const sql = 'SELECT * FROM usuario;';
         return consulta(sql, '', 'Nenhum registro encontrado!');
     };
 
     findById(id) {
-        const sql = 'SELECT * FROM produto WHERE idProduto=?;';
+        const sql = 'SELECT * FROM usuario WHERE idUsuario=?;';
         return consulta(sql, id, 'Nenhum registro encontrado!');
     };
 
     update(dados, id) {
-        let sql = 'UPDATE produto SET ? WHERE idProduto=?;';
+        let sql = 'UPDATE usuario SET ? WHERE idUsuario=?;';
         return consulta(sql, [dados, id], 'Dados inválidos, alteração cancelada!');
     };
 
     delete(id) {
-        const sql = 'DELETE FROM produto WHERE idProduto=?;';
+        const sql = 'DELETE FROM usuario WHERE idUsuario=?;';
         return consulta(sql, id, 'Dados inválidos, remoção cancelada!');
     };
 
 }
 
-export default new ProdutoRepository();
+export default new UsuarioRepository();
