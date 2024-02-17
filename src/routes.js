@@ -1,21 +1,26 @@
 import { Router } from 'express';
-import ProdutoController from '../src/app/controllers/produtoController.js';
+import ProdutoController from './app/controllers/ProdutoController.js';
 import UsuarioController from './app/controllers/UsuarioController.js';
+import CompraController from './app/controllers/CompraController.js';
 
 const router = Router();
 
 //Rotas produto
-router.post('/produtos', ProdutoController.store);
-router.get('/produtos', ProdutoController.index);
-router.get('/produtos/:id', ProdutoController.show);
-router.put('/produtos/:id', ProdutoController.update);
-router.delete('/produtos/:id', ProdutoController.delete);
+router.post('/trabalho2/produtos', ProdutoController.store);
+router.get('/trabalho2/produtos', ProdutoController.index);
+router.get('/trabalho2/produtos/:id', ProdutoController.show);
+router.put('/trabalho2/produtos/:id', ProdutoController.update);
+router.delete('/trabalho2/produtos/:id', ProdutoController.delete);
 
 //Rotas usuário
-router.post('/usuarios', UsuarioController.store);
-router.get('/usuarios', UsuarioController.index);
-router.get('/usuarios/:id', UsuarioController.show);
-router.put('/usuarios/:id', UsuarioController.update);
-router.delete('/usuarios/:id', UsuarioController.delete);
+router.post('/trabalho2/usuarios', UsuarioController.store);
+router.get('/trabalho2/usuarios', UsuarioController.index);
+router.get('/trabalho2/usuarios/:id', UsuarioController.show);
+router.put('/trabalho2/usuarios/:id', UsuarioController.update);
+router.delete('/trabalho2/usuarios/:id', UsuarioController.delete);
+
+//Rota compra
+router.post('/trabalho2/compras', CompraController.buy);
+router.get('/trabalho2/compras', CompraController.list);
 
 export default router;
