@@ -15,7 +15,7 @@ class UsuarioRepository {
 
     findById(id) {
         const sql = 'SELECT * FROM usuario WHERE idUsuario=?;';
-        return consulta(sql, id, 'Nenhum registro encontrado!');
+        return consulta(sql, id, 'Dados inválidos!');
     };
 
     update(dados, id) {
