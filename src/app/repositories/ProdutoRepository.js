@@ -15,7 +15,7 @@ class ProdutoRepository {
 
     findById(id) {
         const sql = 'SELECT * FROM produto WHERE idProduto=?;';
-        return consulta(sql, id, 'Nenhum registro encontrado!');
+        return consulta(sql, id, 'Dados inválidos!');
     };
 
     update(dados, id) {
