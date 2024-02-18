@@ -4,7 +4,7 @@ class UsuarioRepository {
 
     //CRUD 
     create(usuario) {
-        let sql = 'INSERT INTO usuario SET ?;';
+        const sql = 'INSERT INTO usuario SET ?;';
         return consulta(sql, usuario, 'Dados inválidos, cadastro cancelado!');
     };
 
@@ -19,7 +19,7 @@ class UsuarioRepository {
     };
 
     update(dados, id) {
-        let sql = 'UPDATE usuario SET ? WHERE idUsuario=?;';
+        const sql = 'UPDATE usuario SET ? WHERE idUsuario=?;';
         return consulta(sql, [dados, id], 'Dados inválidos, alteração cancelada!');
     };
 

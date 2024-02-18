@@ -4,7 +4,7 @@ class ProdutoRepository {
 
     //CRUD
     create(produto) {
-        let sql = 'INSERT INTO produto SET ?;';
+        const sql = 'INSERT INTO produto SET ?;';
         return consulta(sql, produto, 'Dados inválidos, cadastro cancelado!');
     };
 
@@ -19,7 +19,7 @@ class ProdutoRepository {
     };
 
     update(dados, id) {
-        let sql = 'UPDATE produto SET ? WHERE idProduto=?;';
+        const sql = 'UPDATE produto SET ? WHERE idProduto=?;';
         return consulta(sql, [dados, id], 'Dados inválidos, alteração cancelada!');
     };
 
