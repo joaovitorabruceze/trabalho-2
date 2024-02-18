@@ -9,7 +9,7 @@ class CompraRepository {
         return consulta(sql, '', 'Dados inválidos!');
     };
 
-    async validaEstoque(dados) {
+    async validarEstoque(dados) {
         try {
             const row = await ProdutoRepository.findById(dados.idProduto);
             if (row.length > 0) {
@@ -28,6 +28,7 @@ class CompraRepository {
         const sql = 'INSERT INTO compra SET ?;';
         return consulta(sql, dados, 'Dados inválidos, compra cancelada!');
     };
+
 }
 
 export default new CompraRepository();
