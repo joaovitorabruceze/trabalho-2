@@ -5,7 +5,8 @@ const conexao = mysql.createConnection({
     port: '3306',//3306
     user: 'administrador',//root
     password: 'Root0000',//root
-    database: 'trabalho2'//trabalho2
+    database: 'trabalho2',//trabalho2
+    ssl: { ca: fs.readFileSync("C:/DigiCertGlobalRootCA.crt.pem") }
 });
 
 conexao.connect();
