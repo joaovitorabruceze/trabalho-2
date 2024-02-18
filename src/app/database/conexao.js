@@ -1,5 +1,5 @@
 import mysql from 'mysql';
-const fs = require('fs');
+import fs from 'fs';
 
 const conexao = mysql.createConnection({
     host: 'trabalho2.mysql.database.azure.com',//localhost
