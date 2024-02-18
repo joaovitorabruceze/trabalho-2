@@ -7,7 +7,7 @@ const conexao = mysql.createConnection({
     user: 'administrador',//root
     password: 'Root0000',//root
     database: 'trabalho2'//trabalho2
-    //,ssl: { ca: fs.readFileSync("./DigiCertGlobalRootCA.crt.pem") }
+    , ssl: { ca: fs.readFileSync('src/app/database/DigiCertGlobalRootCA.crt.pem') }
 });
 
 conexao.connect();
