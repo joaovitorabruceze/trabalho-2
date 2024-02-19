@@ -15,7 +15,7 @@ class CompraController {
     //realiza compra
     async buy(req, res) {
         const dados = req.body;
-        if (await CompraRepository.validaEstoque(dados)) {
+        if (await CompraRepository.validarEstoque(dados)) {
             try {
                 const row = await CompraRepository.comprar(dados);
                 const msg = 'Compra realizada!'
@@ -26,6 +26,7 @@ class CompraController {
         }
         else res.status(400).json('Estoque indisponível!');
     };
+
 }
 
 export default new CompraController();

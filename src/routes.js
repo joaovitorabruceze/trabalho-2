@@ -2,6 +2,7 @@ import { Router } from 'express';
 import ProdutoController from './app/controllers/ProdutoController.js';
 import UsuarioController from './app/controllers/UsuarioController.js';
 import CompraController from './app/controllers/CompraController.js';
+import DevolucaoController from './app/controllers/DevolucaoController.js';
 
 const router = Router();
 
@@ -22,5 +23,8 @@ router.delete('/trabalho2/usuarios/:id', UsuarioController.delete);
 //Rota compra
 router.post('/trabalho2/compras', CompraController.buy);
 router.get('/trabalho2/compras', CompraController.list);
+
+//Rota devolução
+router.put('/trabalho2/devolucao/:id', DevolucaoController.restore);
 
 export default router;
