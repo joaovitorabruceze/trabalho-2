@@ -3,11 +3,11 @@ import fs from 'fs';
 
 const conexao = mysql.createConnection({
     host: 'trabalho2.mysql.database.azure.com',//localhost
-    port: '3306',//3306
     user: 'administrador',//root
     password: 'Root0000',//root
-    database: 'trabalho2'//trabalho2
-    , ssl: { ca: fs.readFileSync('src/app/database/DigiCertGlobalRootCA.crt.pem') }
+    database: 'trabalho2',//trabalho2
+    port: 3306,//3306
+    ssl: { ca: fs.readFileSync('src/app/database/DigiCertGlobalRootCA.crt.pem') }
 });
 
 conexao.connect();
